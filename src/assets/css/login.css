@@ -1,0 +1,520 @@
+.title_label {
+    border-radius: 20px 20px 20px 20px;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #00c2cb;
+    width: 30vw;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+    width: 30vw;
+    background-color: #00c2cb;
+    padding: 2vw 1vw;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 100px;
+    margin-left: 460px;
+    display: flex;
+
+}
+
+.Login {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-left: 350px;
+    width: 30vw;
+    padding: 2vw 1vw;
+    background-color: #f0a30f;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 1rem;
+
+}
+
+input {
+    border: 1px solid rgb(172, 171, 171);
+    border-radius: 10px;
+    padding: 1vw 1vw;
+    outline: none;
+    margin: 5px;
+}
+
+.menu li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 15px 10px;
+    display: block;
+    color: #fff;
+}
+
+.menu li a:hover,
+.menu li a.active {
+
+    color: #f0a30f;
+    transition: 0.3s ease-in-out;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00c2cb;
+    padding: 30px 80px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    height: 20px;
+}
+
+table {
+
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: seperate;
+}
+
+td,
+th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+.button-cls {
+    text-align: center;
+    flex-direction: column;
+    color: #fff;
+    background-color: #00c2cb;
+    padding: 5px 5px;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: auto;
+}
+
+.button-cls-lg {
+    text-align: center;
+    flex-direction: column;
+    color: #00c2cb;
+    padding: 10px 10px;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: auto;
+}
+
+.spn-cls {
+    text-align: center;
+    flex-direction: column;
+    color: light grey;
+    padding: 10px 10px;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.boxrect {
+    background-color: light grey;
+    width: 150px;
+    border: 3px solid #00c2cb;
+    padding: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    flex-direction: row;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: #f0a30f;
+}
+
+.boxrect:hover {
+    background-color: #00c2cb;
+}
+
+.boxrect1 {
+    width: 250px;
+    height: 400px;
+    float: right;
+    margin-top: 70px;
+    border: 1px solid #f0a30f;
+    text-align: center;
+    margin-right: 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #00c2cb;
+    color: #fff;
+}
+
+.case-div {
+    width: 230px;
+    height: 450px;
+    border: 3px solid lightgrey;
+    text-align: center;
+    flex-direction: row;
+    float: left;
+    margin: 10px;
+    font-size: 20px;
+    background-color: #fff;
+    color: #f0a30f;
+}
+
+.login_logo {
+    float: right;
+    width: 120px;
+    height: 120px;
+}
+
+.div-fees-receipt {
+    width: 700px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 5px;
+    height: 500px;
+    padding: 3px;
+    text-align: center;
+}
+
+.div-fees-receipt-right {
+    float: right;
+    margin-right: 30px;
+}
+
+.div-fees-receipt-left {
+    float: left;
+    margin-left: 30px;
+}
+
+.div-fees-receipt-center {
+    float: center;
+    margin-left: 30px;
+}
+
+.nav-section {
+    height: 50px;
+}
+
+.gen-rec-table,
+.gen-rec-table th,
+.gen-rec-table td {
+    margin-top: 10px;
+    font-size: 14px;
+    border: none;
+    text-align: left;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.5px;
+}
+
+.input-box-size {
+    height: 3px;
+    width: auto;
+}
+
+.client-table,
+.client-table td,
+.client-table th {
+    border-collapse: sepearate;
+    padding: 5px;
+
+}
+
+.client-det-table,
+.client-det-table th,
+.client-det-table td {
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid black;
+    margin-left: 5px;
+    width: auto;
+}
+
+.client-det-div-1 {
+
+    text-align: center;
+    flex-direction: row;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    width: 90%;
+    background-color: #fff;
+    border: 1px solid black;
+
+}
+
+.client-det-div-2 {
+
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    background-color: #fff;
+    width: 90%;
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+.client-det-div-3 {
+
+    text-align: center;
+    float: right;
+    margin-top: 10px;
+    font-size: 20px;
+    background-color: #fff;
+    margin-right: 20px;
+}
+
+.client-det-div-tbl .client-det-div-tbl th,
+.client-det-div-tbl td {
+    border: 1px solid black;
+    color: black;
+    background-color: lightgrey;
+    text-align: left;
+    margin-top: 10px;
+}
+
+input[type=text] {
+    width: 60%;
+    height: 40%;
+    padding: 5px 5px;
+    margin: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+input[type=label] {
+    width: 20%;
+    font-size: 10px;
+}
+
+.table-client-edit,
+.table-client-edit th,
+.table-client-edit td {
+    padding: 5px;
+    border: none;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.a-client-det {
+    margin-left: 20px;
+}
+
+.box {
+    float: left;
+    width: auto;
+    padding: 50px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.right {
+    right: 0;
+    width: 80%;
+    /* background-image: url('background-1356642_1280.png'); */
+}
+
+/* Control the right side */
+.left {
+    left: 0;
+    width: 20%;
+    background-color: #00c2cb;
+}
+
+.login-img {
+    margin-top: 50%;
+}
+
+.login-input {
+    background-color: #00c2cb;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+}
+
+.back-image {
+
+    /* background-image: url('Verheffen Systems.png'); */
+}
+
+.split-case-det {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.right-case-det {
+    right: 0;
+    width: 30%;
+
+
+}
+
+/* Control the right side */
+.left-case-det {
+    left: 0;
+    width: 70%;
+
+
+}
+
+.h3-case-det {
+    margin-top: 70px;
+}
+
+.fees-det-tbl {
+    background-color: lightgrey;
+}
+
+.table-case-det,
+.table-case-det th,
+.table-case-det td {
+
+    text-align: left;
+    padding: 5px;
+    border-collapse: collapse;
+
+
+}
+
+.div-case-det-options {
+    float: left;
+    background-color: #f0a30f;
+    color: #000;
+    padding: 10px 10px;
+    margin-top: -200px;
+    width: 30px;
+    height: auto;
+    text-align: center;
+    position: fixed;
+}
+
+.div-repository-options {
+
+    background-color: #f0a30f;
+    color: #000;
+    padding: 10px 10px;
+    margin-left: 50px;
+    width: 30px;
+    height: auto;
+    text-align: center;
+    float: right;
+}
+
+.icon-clas-plus {
+    width: 50px;
+    color: #00c2cb;
+    height: 30px;
+}
+
+.icon-list-case-dt {
+    height: 25px;
+}
+
+.icon-class-user {
+    height: 30px;
+    margin-top: 4px;
+}
+
+.icon-user-div {
+    visibility: hidden;
+}
+
+.home-filter-sel-div {
+    margin-top: 30px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+}
+
+.home-barGraph-div {
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+.icon-class-folder {
+    width: 50px;
+    height: 50px;
+    margin-left: 150px;
+    color: #f0a30f;
+}
+
+.icon-class-folder-R {
+    width: 50px;
+    height: 50px;
+    margin-left: 150px;
+    color: #f0a30f;
+    margin-top: 80px;
+}
+
+.icon-class-folder-div-R {
+    display: flex;
+}
+
+.icon-class-folder-title {
+
+    margin-left: 150px;
+}
+
+.case-detail-doc-div,
+.case-detail-doc-div h5 {
+    background-color: lightgrey;
+    margin-right: 30px;
+    margin-left: 50px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.case-reports-div-bg {
+
+    /* background-image: url('background-1356642_1280.png'); */
+    width: 100%;
+}

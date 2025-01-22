@@ -1,0 +1,131 @@
+ 1. User Roles and Permissions
+   - Admin:
+     - Manages the system, adds properties, views inquiries, and responds to user inquiries.
+   - User:
+     - Views available properties, sends inquiries to admins about properties they are interested in.
+
+---
+
+ 2. Initial Setup
+   - Admin registration:
+     - Admin signs up via the admin registration page (email, password, etc.).
+     - The system checks if the user role is "admin" and grants admin access.
+
+   - User registration:
+     - User signs up via the user registration page (email, password, etc.).
+     - The system checks if the user role is "user" and grants user access.
+
+---
+
+ 3. Admin Flow
+
+   - Login:
+     - Admin logs in using their credentials (email and password).
+
+   - Dashboard:
+     - Admin views a dashboard with options to:
+       - Add a Property: 
+         - Admin adds details about a property (e.g., title, description, address, price, type, etc.).
+       - Manage Properties:
+         - Admin can edit or delete properties they've listed.
+       - View Inquiries:
+         - Admin can see all inquiries made by users regarding their listed properties.
+
+   - Add Property:
+     - Admin inputs property details (title, description, address, price, etc.).
+     - The system saves the property in the database, linked to the admin.
+     - Property becomes available for users to view.
+
+---
+
+ 4. User Flow
+
+   - Login:
+     - User logs in using their credentials (email and password).
+     - If login is successful, the user is redirected to the property listings page.
+
+   - View Properties:
+     - User views a list of available properties (properties marked as available).
+     - They can filter or search properties by price, location, type, etc.
+     - The system shows the properties listed by admins.
+
+   - Property Details:
+     - User clicks on a property to see more details (description, price, images, etc.).
+     - The user can click an "Inquire" button to send an inquiry.
+
+   - Send Inquiry:
+     - User sends an inquiry about a property (e.g., asking for more details, availability, or viewing arrangements).
+     - The inquiry is stored in the database, with the status set to "pending."
+     - The inquiry is linked to both the user and the property.
+
+---
+
+ 5. Admin Responds to Inquiries
+
+   - View Inquiries:
+     - Admin goes to the inquiries section of the dashboard and sees a list of inquiries with the status "pending."
+     - Admin can click on each inquiry to view the details and the message sent by the user.
+
+   - Respond to Inquiry:
+     - Admin replies to the user, providing the requested information or scheduling a meeting/viewing.
+     - The status of the inquiry is updated to "responded."
+
+   - Close Inquiry:
+     - After the admin’s response, the inquiry can be marked as "closed."
+     - Alternatively, if there’s no response or no further interaction, it remains "pending."
+
+---
+
+ 6. User Receives Admin Response
+
+   - View Responses:
+     - The user receives an email notification or gets a notification in the app when the admin has responded to their inquiry.
+     - User can view the admin's response and either accept, schedule a viewing, or ask further questions.
+   
+   - Inquiry Closed:
+     - Once the user and admin have completed the interaction (e.g., user chooses to rent or buy the property, or simply abandons the inquiry), the status is set to "closed."
+
+---
+
+ 7. Additional Features/Flow
+
+   - Property Management:
+     - Admin can update the property availability or details (price, status, etc.) at any time.
+   
+   - Property Availability Status:
+     - Properties can have an availability status (available, sold, rented, etc.).
+     - When a property is rented or sold, it can be marked as unavailable to prevent new inquiries.
+
+   - User Dashboard (Optional):
+     - A page where users can view their inquiry history and the status of their inquiries.
+   
+---
+
+ 8. Flow Summary Diagram
+
+Here’s a high-level summary of the flow:
+
+```
+User Registration → User Login → Browse Properties → View Property → Send Inquiry → Admin Views Inquiry → Admin Responds → User Views Response → Inquiry Closed
+
+Admin Registration → Admin Login → Dashboard → Add Property → View/Edit/Delete Properties → View Inquiries → Respond to Inquiry → Close Inquiry
+```
+
+ 9. Backend Flow (Server-side)
+
+- Authentication: Use JWT (JSON Web Tokens) or session-based authentication for secure login.
+- Property CRUD (Create, Read, Update, Delete): Admin can manage properties through RESTful API endpoints.
+- Inquiry CRUD: Users can create inquiries, and admins can update their statuses.
+- Notifications: When an inquiry status changes, users and admins should be notified (email, push, or in-app).
+
+ 10. Front-end Flow
+- User Interface: Simple, clean interface for both admin and user dashboards.
+- Property Listings: Dynamic filtering and search for users to find properties.
+- Inquiry Form: Form to send inquiries, with validation (e.g., non-empty messages).
+
+ 11. Database Flow
+
+- Users Table: Stores user roles and credentials.
+- Properties Table: Stores the properties added by admins.
+- Inquiries Table: Stores user inquiries, linked to users and properties.
+
