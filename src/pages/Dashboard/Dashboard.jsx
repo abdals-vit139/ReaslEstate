@@ -3,12 +3,14 @@ import Layout from "../../components/adminLayout/Layout";
 import PropertyService from "../../services/property/Property.service";
 import Loader from "../../common/Loader/Loader";
 import PropertyTable from "../../components/PropertyTable";
+import FormModal from "../../components/FormModal";
 
 const Dashboard = () => {
   const [properties, setProperties] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedOption, setSelectedOption] = useState("sale");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -41,6 +43,14 @@ const Dashboard = () => {
       </Layout>
     );
   }
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const filteredProperties = Array.isArray(properties)
     ? properties.filter(
@@ -78,9 +88,19 @@ const Dashboard = () => {
           <p className="text-white">Manage rent listings here.</p>
         </div>
       </div>
+      {/* Add Property button positioned to the right */}
+      <div className="flex justify-end mt-4 mr-1">
+        <button
+          className="bg-primary text-white px-6 py-3 rounded-md hover:bg-gray-400"
+          onClick={openModal}
+        >
+          Add Property
+        </button>
+        <FormModal isOpen={isModalOpen} onClose={closeModal} />
+      </div>
 
       {/* Property Cards for the selectedOption */}
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProperties.length > 0 ? (
           filteredProperties.map((property, index) => (
             <PropertyTable

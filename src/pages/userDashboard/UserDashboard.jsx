@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FormModal from "../../components/FormModal";
 import Loader from "../../common/Loader/Loader";
 import PropertyService from "../../services/property/Property.service";
-import PropertyCard from "../../components/CardModal";
+import PropertyCard from "../../components/PropertyCard";
 
 const UserDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

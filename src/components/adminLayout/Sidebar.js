@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
-    <div className="w-64 bg-gray-800 text-white p-5">
+    <div
+      className={`${
+        isOpen ? "w-64" : "w-16"
+      } bg-gray-800 text-white p-5 transition-all duration-300 sm:w-64`}
+    >
       <h2 className="text-2xl font-semibold mb-5">Dashboard</h2>
       <ul>
         <li className="mb-3">
