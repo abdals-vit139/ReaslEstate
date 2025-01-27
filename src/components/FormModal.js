@@ -31,16 +31,16 @@ const FormModal = ({ isOpen, onClose }) => {
       ...prevData,
       userId,
       [name]:
-        type === "checkbox" ? checked : type === "file" ? files[0] : value.name,
+        type === "checkbox" ? checked : type === "file" ? files[0] : value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       const response = await PropertyService.create(formData);
       console.log(response);
-      // Clear form data after successful submission
       setFormData({
         selectedOption: "sale",
         propertyType: "",
@@ -61,22 +61,17 @@ const FormModal = ({ isOpen, onClose }) => {
         pincode: "",
         photo: null,
       });
-      // Display success message or redirect to property listing page after successful submission
-      // Example: toast.success("Property added successfully!");
-      // Example: navigate("/properties");
+      onClose();
     } catch (error) {
       console.error(error);
     }
-
-    console.log(formData);
-    onClose();
   };
 
   return (
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full relative">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl relative overflow-y-auto max-h-[90vh]">
             <button
               onClick={onClose}
               className="absolute top-4 right-4 text-gray-500 text-2xl hover:text-gray-700 focus:outline-none"
@@ -97,7 +92,7 @@ const FormModal = ({ isOpen, onClose }) => {
                   name="selectedOption"
                   value={formData.selectedOption}
                   onChange={handleChange}
-                  className="mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                   <option value="sale">For Sale</option>
                   <option value="rent">For Rent</option>
@@ -108,7 +103,7 @@ const FormModal = ({ isOpen, onClose }) => {
               {/* Conditional Fields */}
               {formData.selectedOption === "sale" && (
                 <>
-                  <div className="mb-4 grid grid-cols-3 gap-4">
+                  <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700">
                         Property Type
@@ -152,7 +147,7 @@ const FormModal = ({ isOpen, onClose }) => {
                     </div>
                   </div>
 
-                  <div className="mb-4 grid grid-cols-3 gap-4">
+                  <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700">
                         Rooms
@@ -185,7 +180,7 @@ const FormModal = ({ isOpen, onClose }) => {
               {(formData.selectedOption === "rent" ||
                 formData.selectedOption === "lease") && (
                 <>
-                  <div className="mb-4 grid grid-cols-3 gap-4">
+                  <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700">
                         Rent Amount
@@ -231,7 +226,7 @@ const FormModal = ({ isOpen, onClose }) => {
                     )}
                   </div>
 
-                  <div className="mb-4 grid grid-cols-3 gap-4">
+                  <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {(formData.selectedOption === "rent" ||
                       formData.selectedOption === "lease") && (
                       <div>
@@ -252,7 +247,7 @@ const FormModal = ({ isOpen, onClose }) => {
               )}
 
               {/* Common Address Fields */}
-              <div className="mb-4 grid grid-cols-3 gap-4">
+              <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Flat No
@@ -296,7 +291,7 @@ const FormModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="mb-4 grid grid-cols-3 gap-4">
+              <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Area
@@ -340,7 +335,7 @@ const FormModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="mb-4 grid grid-cols-3 gap-4">
+              <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Pincode
