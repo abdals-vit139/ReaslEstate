@@ -50,8 +50,8 @@ const PropertyTable = ({ property, index }) => {
   // Handler for image click
   const handleImageClick = () => {
     if (photoUrl) {
-      setModalImageUrl(photoUrl); // Set the image URL to display in the modal
-      setIsModalOpen(true); // Open the modal
+      setModalImageUrl(photoUrl);
+      setIsModalOpen(true);
     } else {
       alert("No image available for this property.");
     }
@@ -65,85 +65,80 @@ const PropertyTable = ({ property, index }) => {
 
   return (
     <>
-      <div className="overflow-x-full max-w-screen-xl mx-auto p-4">
-        <table className="min-w-full table-auto border-collapse border border-gray-300">
+      {/* Property Table Wrapper */}
+      <div className="property-table-wrapper overflow-auto mx-auto p-4">
+        <table className="min-w-full table-auto border-gray-300">
           <thead>
             <tr>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
-                Index
-              </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
+              <th className="border-b border-gray-300 p-4 text-left">Index</th>
+              <th className="border-b border-gray-300 p-4 text-left">
                 User ID
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
+              <th className="border-b border-gray-300 p-4 text-left">
                 User Name
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
+              <th className="border-b border-gray-300 p-4 text-left">
                 Available From
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
+              <th className="border-b border-gray-300 p-4 text-left">
                 Building Name
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
+              <th className="border-b border-gray-300 p-4 text-left">
                 Property Type
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/4">
+              <th className="border-b border-gray-300 p-4 text-left">
                 Address
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/4">
+              <th className="border-b border-gray-300 p-4 text-left">
                 Details
               </th>
-              <th className="border-b border-gray-300 p-4 text-left w-1/6">
-                Price
-              </th>
-              <th className="border-b border-gray-300 p-4 text-left w-11/12">
-                Image
-              </th>
+              <th className="border-b border-gray-300 p-4 text-left">Price</th>
+              <th className="border-b border-gray-300 p-4 text-left">Image</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">{index + 1}</p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">{user_id}</p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">{username}</p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">{availableFrom}</p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <h3 className="text-xl font-semibold text-gray-800">
                   {building}
                 </h3>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg font-semibold text-gray-800">
                   {propertyType}
                 </p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/4">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">
                   Flat No: {flatNo}, Street: {street}, Area: {area}, City:{" "}
                   {city}, State: {state}, PinCode: {pincode}
                 </p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/4">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">
                   Rooms: {rooms} Square Feet: {sqft} sqft Rent Amount:{" "}
                   {formattedRentAmount} Deposit: {formattedDeposit} Maintenance:{" "}
                   {formattedMaintenance}
                 </p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-1/6">
+              <td className="border-b border-gray-300 p-4">
                 <p className="text-lg font-bold text-gray-800">
                   {formattedPrice}
                 </p>
               </td>
-              <td className="border-b border-gray-300 p-4 w-11/12">
+              <td className="border-b border-gray-300 p-4">
                 <FaImage
                   className="text-2xl cursor-pointer"
                   onClick={handleImageClick}
@@ -157,7 +152,7 @@ const PropertyTable = ({ property, index }) => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-md relative">
+          <div className="bg-white p-4 rounded-md relative max-w-full mx-2">
             {/* Close button */}
             <button
               className="absolute top-2 right-2 p-2 text-2xl text-gray-700"
