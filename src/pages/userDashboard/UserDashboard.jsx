@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormModal from "../../components/FormModal";
 import Loader from "../../common/Loader/Loader";
 import PropertyService from "../../services/property/Property.service";
 import PropertyCard from "../../components/PropertyCard";
 
 const UserDashboard = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [propertyDetails, setPropertyDetails] = useState([]);
@@ -39,6 +40,11 @@ const UserDashboard = () => {
     setIsModalOpen(false);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <>
       {/* navbar */}
@@ -46,12 +52,18 @@ const UserDashboard = () => {
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-white text-lg font-bold">Dashboard</div>
           <div className="space-x-6">
-            <Link to="#" className="text-white hover:text-gray-400">
+            <Link
+              to="/usr/dashboard"
+              className="text-white hover:text-gray-400"
+            >
               Home
             </Link>
-            <Link to="#" className="text-white hover:text-gray-400">
+            <button
+              onClick={handleLogout}
+              className="text-white hover:text-gray-400"
+            >
               Logout
-            </Link>
+            </button>
           </div>
         </div>
       </nav>

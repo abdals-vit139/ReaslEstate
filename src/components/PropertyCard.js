@@ -40,7 +40,7 @@ const PropertyCard = ({ property }) => {
   if (!property) return <div>Property details are unavailable.</div>;
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-sm mx-auto sm:max-w-md lg:max-w-lg">
       {property?.photoUrl ? (
         <img
           src={property.photoUrl}
@@ -52,21 +52,21 @@ const PropertyCard = ({ property }) => {
       )}
 
       <div className="p-4">
-        <h3 className="text-xl font-semibold">
+        <h3 className="text-xl font-semibold text-gray-800">
           {property?.building || "Unnamed Building"}
         </h3>
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-600 mt-2 text-sm md:text-base">
           {property?.area || "Area not specified"}
         </p>
         <p className="text-lg font-semibold text-primary mt-2">
           ₹{property?.askingPrice || "Not available"}
         </p>
-        <p className="text-gray-500 mt-1">
+        <p className="text-gray-500 mt-1 text-sm md:text-base">
           {property?.flatNo}, {property?.street}, {property?.city},{" "}
           {property?.state}
         </p>
         <button
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
+          className="mt-4 p-2 bg-blue-500 text-white rounded w-full sm:w-auto"
           onClick={() => handleOpenModal("Sale")}
         >
           Edit Property Details

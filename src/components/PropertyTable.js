@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaImage } from "react-icons/fa";
 
-const PropertyTable = ({ property, index }) => {
+const PropertyTable = ({ property, index, selectedOption }) => {
   const {
     availableFrom,
     askingPrice,
@@ -65,8 +65,8 @@ const PropertyTable = ({ property, index }) => {
 
   return (
     <>
-      {/* Property Table Wrapper */}
-      <div className="property-table-wrapper overflow-auto mx-auto p-4">
+      {/* Property Table */}
+      <div className="overflow-auto mx-auto p-4">
         <table className="min-w-full table-auto border-gray-300">
           <thead>
             <tr>
@@ -77,22 +77,31 @@ const PropertyTable = ({ property, index }) => {
               <th className="border-b border-gray-300 p-4 text-left">
                 User Name
               </th>
-              <th className="border-b border-gray-300 p-4 text-left">
-                Available From
-              </th>
+              {/* Conditional column for "Available From" */}
+              {(selectedOption === "rent" || selectedOption === "lease") && (
+                <th className="border-b border-gray-300 p-4 text-left">
+                  Available From
+                </th>
+              )}
+
               <th className="border-b border-gray-300 p-4 text-left">
                 Building Name
               </th>
-              <th className="border-b border-gray-300 p-4 text-left">
-                Property Type
-              </th>
+              {selectedOption === "sale" && (
+                <th className="border-b border-gray-300 p-4 text-left">
+                  Property Type
+                </th>
+              )}
               <th className="border-b border-gray-300 p-4 text-left">
                 Address
               </th>
               <th className="border-b border-gray-300 p-4 text-left">
                 Details
               </th>
-              <th className="border-b border-gray-300 p-4 text-left">Price</th>
+              <th className="border-b border-gray-300 p-4 text-left">
+                {selectedOption === "sale" ? "Price" : "Rent Amount"}
+              </th>
+
               <th className="border-b border-gray-300 p-4 text-left">Image</th>
             </tr>
           </thead>
@@ -107,19 +116,23 @@ const PropertyTable = ({ property, index }) => {
               <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">{username}</p>
               </td>
-              <td className="border-b border-gray-300 p-4">
-                <p className="text-lg text-gray-800">{availableFrom}</p>
-              </td>
+              {(selectedOption === "rent" || selectedOption === "lease") && (
+                <td className="border-b border-gray-300 p-4">
+                  <p className="text-lg text-gray-800">{availableFrom}</p>
+                </td>
+              )}
               <td className="border-b border-gray-300 p-4">
                 <h3 className="text-xl font-semibold text-gray-800">
                   {building}
                 </h3>
               </td>
-              <td className="border-b border-gray-300 p-4">
-                <p className="text-lg font-semibold text-gray-800">
-                  {propertyType}
-                </p>
-              </td>
+              {selectedOption === "sale" && (
+                <td className="border-b border-gray-300 p-4">
+                  <p className="text-lg font-semibold text-gray-800">
+                    {propertyType}
+                  </p>
+                </td>
+              )}
               <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">
                   Flat No: {flatNo}, Street: {street}, Area: {area}, City:{" "}
@@ -128,16 +141,26 @@ const PropertyTable = ({ property, index }) => {
               </td>
               <td className="border-b border-gray-300 p-4">
                 <p className="text-lg text-gray-800">
-                  Rooms: {rooms} Square Feet: {sqft} sqft Rent Amount:{" "}
-                  {formattedRentAmount} Deposit: {formattedDeposit} Maintenance:{" "}
-                  {formattedMaintenance}
+                  {selectedOption === "sale" ? (
+                    <>
+                      Rooms: {rooms} Square Feet: {sqft} sqft
+                    </>
+                  ) : (
+                    <>
+                      Deposit: {formattedDeposit} Maintenance:{" "}
+                      {formattedMaintenance}
+                    </>
+                  )}
                 </p>
               </td>
               <td className="border-b border-gray-300 p-4">
                 <p className="text-lg font-bold text-gray-800">
-                  {formattedPrice}
+                  {selectedOption === "sale"
+                    ? formattedPrice
+                    : formattedRentAmount}
                 </p>
               </td>
+
               <td className="border-b border-gray-300 p-4">
                 <FaImage
                   className="text-2xl cursor-pointer"

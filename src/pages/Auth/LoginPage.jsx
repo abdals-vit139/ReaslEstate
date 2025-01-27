@@ -13,23 +13,26 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const role = "admin";
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsLoading(true);
 
     try {
-      const response = await AuthService.login(email, password, role);
-      // console.log(response);
+      const response = await AuthService.login(email, password);
+      console.log(response);
       setIsLoading(false);
 
       if (response.data.message === "Login successful") {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userID", response.data.user.id);
         localStorage.setItem("username", response.data.user.username);
-        navigate("/");
+
+        if (response.data.user.role === "admin") {
+          navigate("/");
+        } else {
+          navigate("/usr/dashboard");
+        }
       } else {
         setErrorMessage("Invalid email or password.");
       }

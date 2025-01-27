@@ -37,10 +37,21 @@ const FormModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    // Prepare FormData
+    const formDataToSend = new FormData();
+
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+
+    // formDataToSend.append("user_id", userId);
+
+    console.log([...formDataToSend]);
     try {
-      const response = await PropertyService.create(formData);
+      const response = await PropertyService.create(formDataToSend);
       console.log(response);
+
       setFormData({
         selectedOption: "sale",
         propertyType: "",
