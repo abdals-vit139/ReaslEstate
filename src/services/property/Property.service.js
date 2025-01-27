@@ -1,54 +1,21 @@
 import http from "../http-common";
 
 class PropertyService {
-  create(
-    selectedOption,
-    propertyType,
-    askingPrice,
-    papersAvailable,
-    sqft,
-    rooms,
-    availableFrom,
-    rentAmount,
-    deposit,
-    maintenance,
-    flatNo,
-    building,
-    street,
-    area,
-    city,
-    state,
-    pincode,
-    photo,
-    userId
-  ) {
-    const propertyData = {
-      selectedOption,
-      propertyType,
-      askingPrice,
-      papersAvailable,
-      sqft,
-      rooms,
-      availableFrom,
-      rentAmount,
-      deposit,
-      maintenance,
-      flatNo,
-      building,
-      street,
-      area,
-      city,
-      state,
-      pincode,
-      photo,
-      userId,
-    };
-
-    return http.post("/property/create", propertyData);
+  async create(formData) {
+    try {
+      const response = await http.post("/property/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error creating property:", error);
+      throw error;
+    }
   }
 
-  getAll(propertyType) {
-    // return http.get(`/property/getAll?propertyType=${propertyType}`);
+  getAll() {
     return http.get("/property/getAll");
   }
 

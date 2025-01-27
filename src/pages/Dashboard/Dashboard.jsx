@@ -26,7 +26,7 @@ const Dashboard = () => {
     };
 
     fetchProperties();
-  }, []);
+  }, [PropertyTable]);
 
   if (isLoading) {
     return (
@@ -60,7 +60,8 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div className="grid grid-cols-3 gap-6">
+      {/* Property Type Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           id="sale"
           className="bg-blue-500 p-5 rounded-lg shadow-lg cursor-pointer"
@@ -88,6 +89,7 @@ const Dashboard = () => {
           <p className="text-white">Manage rent listings here.</p>
         </div>
       </div>
+
       {/* Add Property button positioned to the right */}
       <div className="flex justify-end mt-4 mr-1">
         <button
@@ -99,20 +101,20 @@ const Dashboard = () => {
         <FormModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
 
-      {/* Property Cards for the selectedOption */}
-      <div className="mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProperties.length > 0 ? (
-          filteredProperties.map((property, index) => (
-            <PropertyTable
-              key={property.id}
-              property={property}
-              index={index}
-            />
-          ))
-        ) : (
-          <p>No properties available for {selectedOption}.</p>
-        )}
-      </div>
+      {/* Property Listings (Responsive Grid) */}
+
+      {filteredProperties.length > 0 ? (
+        filteredProperties.map((property, index) => (
+          <PropertyTable
+            key={property.id}
+            property={property}
+            selectedOption={selectedOption}
+            index={index}
+          />
+        ))
+      ) : (
+        <p>No properties available for {selectedOption}.</p>
+      )}
     </Layout>
   );
 };
